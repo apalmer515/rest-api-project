@@ -58,7 +58,7 @@ class UserRegister(MethodView):
             body=f"Hi {user.username}! You have successfully signed up to the Stores REST API."
         )
 
-        return {"message": "User created successfully."}, 201
+        return {"message": f"User created successfully. {user.email}"}, 201
 
 
 @blp.route("/login")
