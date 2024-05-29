@@ -52,13 +52,13 @@ class UserRegister(MethodView):
         db.session.add(user)
         db.session.commit()
 
-        send_simple_message(
+        data = send_simple_message(
             to=user.email,
             subject="Successfully signed up",
             body=f"Hi {user.username}! You have successfully signed up to the Stores REST API."
         )
 
-        return {"message": f"User created successfully. {user.email}"}, 201
+        return {"message": f"User created successfully. {data}"}, 201
 
 
 @blp.route("/login")
